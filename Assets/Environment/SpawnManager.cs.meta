@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 48fa7008a0303514db1d180adafa6270
+timeCreated: 1548534234
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ground: {fileID: 1798056456783544, guid: 3278226f93a388745abad9b70018d327, type: 2}
+  - dirt: {fileID: 1813786584418492, guid: 2b1b06cf3e5f61e41a5303305c1f6cde, type: 2}
+  - iron: {fileID: 1269361750962406, guid: 1cab64462f152514a97d83f8deddf71f, type: 2}
+  - copper: {fileID: 1909275132519552, guid: dd4dbd629c7ec8b449ccf5d6e7081c41, type: 2}
+  - gold: {fileID: 1696351871000488, guid: aa3a4659b712db84ca9c4c5a65db5b0a, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
