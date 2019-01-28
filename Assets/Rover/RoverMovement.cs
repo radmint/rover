@@ -4,7 +4,7 @@ public class RoverMovement : MonoBehaviour {
     public bool facingRight = true;
     public bool facingDown = false;
     public float moveForce = 365f;
-    public float maxSpeed = 5f;
+    public float speed = 10f;
 
     //private Animator anim;
     private Rigidbody2D rb2d;
@@ -23,19 +23,14 @@ public class RoverMovement : MonoBehaviour {
     void FixedUpdate()
     {
         float h = Input.GetAxis("Horizontal");
-        //anim.SetFloat("Speed", Mathf.Abs(h));
+        float v = Input.GetAxis("Vertical");
 
-        if(h * rb2d.velocity.x < maxSpeed)
-        {
-            rb2d.AddForce(Vector2.right * h * moveForce);
-        }
+        Vector2 movement = new Vector2(h, (v < 0 ? 0 : v));
 
-        if(Mathf.Abs(rb2d.velocity.x) > maxSpeed)
-        {
-            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
-        }
+        rb2d.AddForce(movement * speed);
 
-        if(h > 0 && !facingRight)
+
+        if (h > 0 && !facingRight)
         {
             FlipHorizontal();
         }
@@ -43,15 +38,15 @@ public class RoverMovement : MonoBehaviour {
         {
             FlipHorizontal();
         }
-        else if(Input.GetKeyDown(KeyCode.DownArrow))
+        else if(Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y <= 3)
         {
             FlipVertical();
         }
-
     }
 
     void FlipHorizontal()
     {
+        rb2d.velocity = Vector3.zero;
         facingRight = !facingRight;
         if(facingDown)
         {
@@ -71,7 +66,7 @@ public class RoverMovement : MonoBehaviour {
         }
         else
         {
-            var transformY = transform.localScale.x > 0 ? -90 : 90;
+            var transformY = transform.lossyScale.x > 0 ? -90 : 90;
             transform.rotation = Quaternion.Euler(0, 0, transformY);
 
         }
