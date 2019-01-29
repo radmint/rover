@@ -55,7 +55,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696351871000488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   m_LocalPosition: {x: -2.99, y: -1.06, z: -0.0625}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
@@ -174,7 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f99c30f4534be4cae4cc4bb7fda743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rover: {fileID: 1757377878957886, guid: 0914d0c89ecd3b848adbded4bbbc30fb, type: 2}
 --- !u!114 &114470675172736074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,8 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11911631111ec45d9a332f6b20608dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceType: 3
-  MiningSpeed: 1
+  ResourceType: 3
+  MiningSpeed: 5
   Value: 3
   CanBeMined: 1
 --- !u!198 &198264082006568126

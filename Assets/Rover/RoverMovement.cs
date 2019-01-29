@@ -24,8 +24,22 @@ public class RoverMovement : MonoBehaviour {
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+        float j = Input.GetAxis("Jump");
+        float ySpeed = 0;
 
-        Vector2 movement = new Vector2(h, (v < 0 ? 0 : v));
+        if(v < 0.5 )
+        {
+            if(j > 0)
+            {
+                ySpeed = j;
+            }
+        }
+        else
+        {
+            ySpeed = v;
+        }
+
+        Vector2 movement = new Vector2(h, ySpeed);
 
         rb2d.AddForce(movement * speed);
 

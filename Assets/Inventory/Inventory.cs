@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,7 +35,7 @@ public class Inventory : MonoBehaviour {
 
     public void AddResourceThenUpdate(ResourceCube resource, int count)
     {
-        var tempResource = resources.FirstOrDefault(x => x.ResourceType == resource.resourceType);
+        var tempResource = resources.FirstOrDefault(x => x.ResourceType == resource.ResourceType);
         tempResource.Count += count;
         if(tempResource.ResourceType == ResourceType.Copper)
         {
@@ -50,6 +51,26 @@ public class Inventory : MonoBehaviour {
 
     public void RemoveResourceThenUpdate(ResourceCube resource, int count)
     {
-        resources.FirstOrDefault(x => x.ResourceType == resource.resourceType).Count -= count;
+        resources.FirstOrDefault(x => x.ResourceType == resource.ResourceType).Count -= count;
+    }
+
+    public void CollectResource(ResourceCube[] resource)
+    {
+        var resourceInfo = resource[0];
+        Debug.Log("collectResource: " + resourceInfo.ResourceType + ": " + resourceInfo.Value);
+        resources.FirstOrDefault(x => x.ResourceType == resourceInfo.ResourceType).Count += resourceInfo.Value;
+        Resource tempResource = resources.FirstOrDefault(x => x.ResourceType == resourceInfo.ResourceType);
+        if (resourceInfo.ResourceType == ResourceType.Copper)
+        {
+            Copper.text = tempResource.Count.ToString();
+        }
+        else if (resourceInfo.ResourceType == ResourceType.Iron)
+        {
+            Iron.text = tempResource.Count.ToString();
+        }
+        else if (resourceInfo.ResourceType == ResourceType.Gold)
+        {
+            Gold.text = tempResource.Count.ToString();
+        }
     }
 }

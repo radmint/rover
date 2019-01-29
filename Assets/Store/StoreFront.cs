@@ -12,10 +12,11 @@ public class StoreFront : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.name == "Rover")
         {
+            Debug.Log("rover in");
         }
     }
 }

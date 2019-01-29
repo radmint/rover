@@ -39,7 +39,7 @@ public class SpawnManager : MonoBehaviour {
             for (int j = 0; j < maxHeight; j++)
             {
                 blockToPlace = DetermineBlock(originPosition.y);
-                Instantiate(blockToPlace, originPosition, Quaternion.identity);
+                Instantiate(blockToPlace, originPosition, Quaternion.Euler(0, 180, 0));
                 float cubeY = originPosition.y - cubeHeightWidth;
                 Vector2 nextPositionY = new Vector2(originPosition.x, cubeY);
                 originPosition = nextPositionY;
@@ -51,7 +51,7 @@ public class SpawnManager : MonoBehaviour {
 
             }
             blockToPlace = DetermineBlock(originPosition.y);
-            Instantiate(blockToPlace, originPosition, Quaternion.identity);
+            Instantiate(blockToPlace, originPosition, Quaternion.Euler(0, 180, 0));
             originPosition += new Vector2(cubeHeightWidth, originPosition.y);
         }
     }
